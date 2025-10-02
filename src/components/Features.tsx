@@ -1,22 +1,35 @@
-import discoverIcon from "@/assets/icon-discover.png";
-import orderIcon from "@/assets/icon-order.png";
-import merchantsIcon from "@/assets/icon-merchants.png";
+import { Store, Pill, Coffee, UtensilsCrossed, ShoppingBag, Sparkles, ShoppingCart, Heart } from "lucide-react";
 
 const features = [
   {
-    icon: discoverIcon,
-    title: "Discover",
-    description: "Find restaurants, cafés, snacks, hammams, and more around you with our smart location-based discovery.",
+    Icon: UtensilsCrossed,
+    title: "Restaurants",
+    description: "Discover the best restaurants in your neighborhood and order your favorite meals.",
   },
   {
-    icon: orderIcon,
-    title: "Order",
-    description: "Place orders directly from the app with just a few taps. Fast, easy, and convenient.",
+    Icon: Coffee,
+    title: "Cafés & Snacks",
+    description: "Find cozy cafés and quick snack spots for your daily cravings.",
   },
   {
-    icon: merchantsIcon,
+    Icon: Store,
+    title: "Supermarkets",
+    description: "Get groceries delivered from local supermarkets with just a few taps.",
+  },
+  {
+    Icon: Pill,
+    title: "Pharmacies",
+    description: "Order medicines and health products from nearby pharmacies.",
+  },
+  {
+    Icon: Sparkles,
+    title: "Hammams & Spas",
+    description: "Book appointments at local hammams and wellness centers.",
+  },
+  {
+    Icon: ShoppingBag,
     title: "Local Merchants",
-    description: "Support local businesses and discover hidden gems in your neighborhood.",
+    description: "Support local businesses and discover unique shops in your area.",
   },
 ];
 
@@ -33,22 +46,25 @@ const Features = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-border"
-            >
-              <div className="w-20 h-20 mb-6 flex items-center justify-center">
-                <img src={feature.icon} alt={feature.title} className="w-full h-full object-contain" />
+          {features.map((feature, index) => {
+            const Icon = feature.Icon;
+            return (
+              <div
+                key={index}
+                className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-border"
+              >
+                <div className="w-16 h-16 mb-6 flex items-center justify-center bg-primary/10 rounded-xl">
+                  <Icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold text-card-foreground mb-4">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-lg">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-card-foreground mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-lg">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
