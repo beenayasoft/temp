@@ -1,9 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Users } from "lucide-react";
+import { Users, MapPin } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useState } from "react";
 
 const Hero = () => {
+  const [location, setLocation] = useState("");
+  
+  const handleLocalize = () => {
+    // Simulate getting user's location
+    setLocation("Casablanca, Morocco");
+  };
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
       {/* Decorative blobs */}
@@ -38,15 +46,32 @@ const Hero = () => {
           {/* Location Search */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-4 max-w-2xl mx-auto">
             <div className="relative flex-1 w-full">
+              <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input 
                 type="text" 
                 placeholder="Enter your city or neighborhood..." 
-                className="h-14 pl-6 pr-4 text-lg rounded-full border-2 border-border focus-visible:border-primary w-full"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="h-14 pl-14 pr-4 text-lg rounded-full border-2 border-border focus-visible:border-primary w-full"
               />
             </div>
-            <Button size="lg" className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap">
-              Explore →
-            </Button>
+            {!location ? (
+              <Button 
+                size="lg" 
+                onClick={handleLocalize}
+                className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap gap-2"
+              >
+                <MapPin className="w-5 h-5" />
+                Localize
+              </Button>
+            ) : (
+              <Button 
+                size="lg" 
+                className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap"
+              >
+                Explore →
+              </Button>
+            )}
           </div>
           
           {/* Social proof */}
