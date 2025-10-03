@@ -3,17 +3,13 @@ import { Input } from "@/components/ui/input";
 import { Users, MapPin } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useState } from "react";
-
 const Hero = () => {
   const [location, setLocation] = useState("");
-  
   const handleLocalize = () => {
     // Simulate getting user's location
     setLocation("Casablanca, Morocco");
   };
-  
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
       {/* Decorative blobs */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
@@ -47,31 +43,14 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-4 max-w-2xl mx-auto">
             <div className="relative flex-1 w-full">
               <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input 
-                type="text" 
-                placeholder="Enter your city or neighborhood..." 
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                className="h-14 pl-14 pr-4 text-lg rounded-full border-2 border-border focus-visible:border-primary w-full"
-              />
+              <Input type="text" placeholder="Enter your city or neighborhood..." value={location} onChange={e => setLocation(e.target.value)} className="h-14 pl-14 pr-4 text-lg rounded-full border-2 border-border focus-visible:border-primary w-full" />
             </div>
-            {!location ? (
-              <Button 
-                size="lg" 
-                onClick={handleLocalize}
-                className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap gap-2"
-              >
+            {!location ? <Button size="lg" onClick={handleLocalize} className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap gap-2">
                 <MapPin className="w-5 h-5" />
                 Localize
-              </Button>
-            ) : (
-              <Button 
-                size="lg" 
-                className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap"
-              >
+              </Button> : <Button size="lg" className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap">
                 Explore →
-              </Button>
-            )}
+              </Button>}
           </div>
           
           {/* Social proof */}
@@ -97,8 +76,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
