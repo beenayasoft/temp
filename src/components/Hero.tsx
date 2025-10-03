@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Play, Users } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Users } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
@@ -34,14 +35,17 @@ const Hero = () => {
             Find the best restaurants, cafés, snacks, hammams, and local merchants around you — order with ease and explore your neighborhood like never before.
           </p>
           
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" className="text-lg px-10 py-7 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg">
-              Start for free →
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-2 rounded-full transition-all gap-2">
-              <Play className="w-5 h-5" />
-              View demo
+          {/* Location Search */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-4 max-w-2xl mx-auto">
+            <div className="relative flex-1 w-full">
+              <Input 
+                type="text" 
+                placeholder="Enter your city or neighborhood..." 
+                className="h-14 pl-6 pr-4 text-lg rounded-full border-2 border-border focus-visible:border-primary w-full"
+              />
+            </div>
+            <Button size="lg" className="text-lg px-10 py-4 h-14 bg-foreground text-background hover:bg-foreground/90 rounded-full transition-all shadow-lg whitespace-nowrap">
+              Explore →
             </Button>
           </div>
           
