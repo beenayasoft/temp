@@ -3,8 +3,11 @@ import { Input } from "@/components/ui/input";
 import { Users, MapPin } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useState } from "react";
+import { useTypingAnimation } from "@/hooks/use-typing-animation";
 const Hero = () => {
   const [location, setLocation] = useState("");
+  const typingText = useTypingAnimation(["Nearby", "Fast", "Fresh", "Local", "Quality"]);
+  
   const handleLocalize = () => {
     // Simulate getting user's location
     setLocation("Casablanca, Morocco");
@@ -31,7 +34,10 @@ const Hero = () => {
               <span className="text-foreground">Local</span>
               <br />
               <span className="text-foreground">Flavors</span>{" "}
-              <span className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-xl">Nearby</span>
+              <span className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-xl min-w-[200px] text-center">
+                {typingText}
+                <span className="animate-pulse">|</span>
+              </span>
             </h1>
           </div>
           
