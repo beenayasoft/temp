@@ -87,7 +87,7 @@ const Blog = () => {
                     <span>{article.date}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-[#FF5722] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-[#F75F16] transition-colors duration-300">
                     {article.title}
                   </h3>
                 </div>
@@ -96,7 +96,7 @@ const Blog = () => {
           </div>
 
           <div className="flex justify-center gap-2 mt-8">
-            <button className="w-3 h-3 rounded-full bg-[#FF5722]"></button>
+            <button className="w-3 h-3 rounded-full bg-[#F75F16]"></button>
             <button className="w-3 h-3 rounded-full bg-gray-300"></button>
             <button className="w-3 h-3 rounded-full bg-gray-300"></button>
           </div>

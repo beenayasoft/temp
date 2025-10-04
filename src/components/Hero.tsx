@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
+import { MapPin, Search } from "lucide-react";
+import { useState } from "react";
+import { useTypingAnimation } from "@/hooks/use-typing-animation";
 
 const Hero = () => {
+  const [location, setLocation] = useState("");
+  const cityText = useTypingAnimation(["Casablanca", "Rabat", "Marrakech", "Tangier", "Fes", "Agadir"]);
+
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#F5F3EE]">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#F5F3EE] pt-20">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E8F5A8] rounded-full blur-3xl opacity-30 translate-x-1/2 -translate-y-1/2"></div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
@@ -42,7 +49,7 @@ const Hero = () => {
           </div>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '400ms' }}>
-            Discover the best restaurants, cafés, supermarkets, pharmacies, hammams, and local shops in your neighborhood.
+            Discover the best restaurants, cafés, supermarkets, pharmacies, hammams, and local shops in <span className="font-semibold text-[#F75F16]">{cityText}</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in" style={{ animationDelay: '600ms' }}>
@@ -62,7 +69,7 @@ const Hero = () => {
           </div>
 
           <div className="relative mt-16 animate-fade-in max-w-4xl mx-auto" style={{ animationDelay: '800ms' }}>
-            <div className="absolute -left-32 top-1/4 bg-white rounded-3xl p-6 shadow-xl max-w-xs hidden lg:block">
+            <div className="absolute -left-32 top-1/4 bg-white rounded-3xl p-6 shadow-xl max-w-xs hidden lg:block z-10">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 bg-[#D4F477] rounded-2xl flex items-center justify-center">
                   <span className="text-2xl">🛍️</span>
@@ -74,7 +81,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="absolute -right-32 top-1/4 bg-white rounded-3xl p-6 shadow-xl max-w-xs hidden lg:block">
+            <div className="absolute -right-32 top-1/4 bg-white rounded-3xl p-6 shadow-xl max-w-xs hidden lg:block z-10">
               <p className="text-sm text-gray-600 mb-2">Receipt</p>
               <h3 className="font-bold text-xl mb-1">Italian Carbonara</h3>
               <p className="text-sm text-gray-500 mb-4">5 products · 30 min</p>
@@ -88,18 +95,45 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className="rounded-3xl overflow-hidden shadow-2xl relative">
               <img
-                src="https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/src/assets/image.png"
                 alt="Shopping experience"
                 className="w-full h-[500px] object-cover"
               />
-            </div>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
-              <div className="flex items-center gap-2">
-                <span className="text-gray-400">🔍</span>
-                <span className="text-gray-600">Ingredients for carbonara</span>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4">
+                <div className="bg-white/95 backdrop-blur-sm rounded-full shadow-xl">
+                  <div className="flex items-center gap-3 px-6 py-4">
+                    <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                    <Input
+                      type="text"
+                      placeholder="Search for merchants, products..."
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-gray-900 placeholder:text-gray-500 bg-transparent"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-8 right-8 z-10">
+                {!location ? (
+                  <Button
+                    size="lg"
+                    className="text-lg px-8 py-6 h-auto bg-[#F75F16] text-white hover:bg-[#E64A19] rounded-full transition-all shadow-xl gap-2"
+                  >
+                    <MapPin className="w-5 h-5" />
+                    Localize
+                  </Button>
+                ) : (
+                  <Button
+                    size="lg"
+                    className="text-lg px-8 py-6 h-auto bg-[#F75F16] text-white hover:bg-[#E64A19] rounded-full transition-all shadow-xl"
+                  >
+                    Explore →
+                  </Button>
+                )}
               </div>
             </div>
           </div>

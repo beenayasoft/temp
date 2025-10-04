@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F3EE]/95 backdrop-blur-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="text-2xl font-bold text-gray-900">
+          <div className="text-2xl font-bold text-[#F75F16]">
             JBUJB
           </div>
 
@@ -52,7 +52,7 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button className="bg-[#2C5446] text-white hover:bg-[#234437] rounded-full px-6 hidden md:inline-flex">
+            <Button className="bg-[#F75F16] text-white hover:bg-[#E64A19] rounded-full px-6 hidden md:inline-flex">
               Register as Merchant
             </Button>
 

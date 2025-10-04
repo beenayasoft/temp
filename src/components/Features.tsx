@@ -49,7 +49,7 @@ const Features = () => {
               key={index}
               className={`group rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in ${
                 category.featured
-                  ? 'bg-[#F5A623] shadow-xl'
+                  ? 'bg-[#F75F16] shadow-xl'
                   : 'bg-white shadow-lg'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
@@ -91,8 +91,8 @@ const Features = () => {
                   </span>
                   <button className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                     category.featured
-                      ? 'bg-white text-[#F5A623] hover:scale-110'
-                      : 'bg-[#F5A623] text-white hover:scale-110'
+                      ? 'bg-white text-[#F75F16] hover:scale-110'
+                      : 'bg-[#F75F16] text-white hover:scale-110'
                   }`}>
                     <span className="text-xl">+</span>
                   </button>
