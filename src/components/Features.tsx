@@ -1,90 +1,102 @@
-const features = [
+const categories = [
   {
-    title: "Restaurants",
-    description: "Discover the best restaurants in your neighborhood and order your favorite meals.",
-    details: "500+ locations",
-    image: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+    title: "Fresh and Health Restaurants",
+    calories: "500+ merchants",
+    servings: "Fast delivery",
+    price: "From 30 DH",
+    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
   },
   {
     title: "Cafés & Snacks",
-    description: "Find cozy cafés and quick snack spots for your daily cravings.",
-    details: "300+ locations",
+    calories: "300+ merchants",
+    servings: "Quick orders",
+    price: "From 15 DH",
     image: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
     featured: true
   },
   {
     title: "Supermarkets",
-    description: "Get groceries delivered from local supermarkets with just a few taps.",
-    details: "150+ locations",
-    image: "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+    calories: "150+ stores",
+    servings: "Same day delivery",
+    price: "From 50 DH",
+    image: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
   },
   {
     title: "Pharmacies",
-    description: "Order medicines and health products from nearby pharmacies.",
-    details: "200+ locations",
-    image: "https://images.pexels.com/photos/159211/headache-pain-pills-medication-159211.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-  },
-  {
-    title: "Hammams & Spas",
-    description: "Book appointments at local hammams and wellness centers.",
-    details: "80+ locations",
-    image: "https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-  },
-  {
-    title: "Local Merchants",
-    description: "Support local businesses and discover unique shops in your area.",
-    details: "1000+ locations",
-    image: "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+    calories: "200+ pharmacies",
+    servings: "Express delivery",
+    price: "From 20 DH",
+    image: "https://images.pexels.com/photos/208512/pexels-photo-208512.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
   },
 ];
 
 const Features = () => {
   return (
-    <section className="py-24 bg-secondary/30 relative overflow-hidden">
+    <section className="py-24 bg-[#F5F3EE] relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Discover Your Neighborhood
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-serif">
+            Your Neighborhood,<br />One App Away
           </h2>
-          <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
-            JBUJB brings the best of your neighborhood right to your fingertips.
-            From dining to wellness, shopping to services, explore local merchants that make your community unique.
+          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            From dining to wellness, shopping to services, explore and order from local merchants with ease and convenience.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {features.map((feature, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {categories.map((category, index) => (
             <div
               key={index}
-              className={`group rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in ${
-                feature.featured
-                  ? 'bg-primary shadow-xl'
-                  : 'bg-card shadow-lg'
+              className={`group rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in ${
+                category.featured
+                  ? 'bg-[#F5A623] shadow-xl'
+                  : 'bg-white shadow-lg'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex justify-center mb-6">
-                <div className={`w-32 h-32 rounded-full overflow-hidden ${feature.featured ? 'ring-4 ring-primary-foreground/30' : 'ring-4 ring-primary/10'}`}>
+                <div className={`w-32 h-32 rounded-full overflow-hidden ${
+                  category.featured
+                    ? 'ring-4 ring-white/30'
+                    : 'ring-4 ring-gray-100'
+                }`}>
                   <img
-                    src={feature.image}
-                    alt={feature.title}
+                    src={category.image}
+                    alt={category.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
               </div>
 
               <div className="text-center">
-                <h3 className={`text-2xl font-bold mb-3 ${feature.featured ? 'text-primary-foreground' : 'text-card-foreground'}`}>
-                  {feature.title}
+                <h3 className={`text-xl font-bold mb-4 ${
+                  category.featured ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {category.title}
                 </h3>
 
-                <p className={`text-sm mb-4 ${feature.featured ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
-                  {feature.description}
-                </p>
+                <div className={`flex items-center justify-center gap-2 text-sm mb-2 ${
+                  category.featured ? 'text-white/90' : 'text-gray-600'
+                }`}>
+                  <span>{category.calories}</span>
+                  <span>•</span>
+                  <span>{category.servings}</span>
+                </div>
 
-                <p className={`text-xs font-semibold ${feature.featured ? 'text-primary-foreground/70' : 'text-primary'}`}>
-                  {feature.details}
-                </p>
+                <div className="flex items-center justify-between mt-6">
+                  <span className={`text-2xl font-bold ${
+                    category.featured ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    {category.price}
+                  </span>
+                  <button className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                    category.featured
+                      ? 'bg-white text-[#F5A623] hover:scale-110'
+                      : 'bg-[#F5A623] text-white hover:scale-110'
+                  }`}>
+                    <span className="text-xl">+</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
